@@ -1,12 +1,18 @@
+import fs from 'fs'
 import "dotenv/config"
 import express from "express";
 import { Server as IOServer } from "socket.io";
-import { createServer as createHttpServer} from "http";
+import { createServer as createHttpServer, ServerOptions} from "https";
 import {router} from "../routes/routes"
 import cors from "cors";
 
+const options: ServerOptions = {
+  key: fs.readFileSync('./certs/agent2-k.pem'),
+  cert: fs.readFileSync('./certs/agent2-c.pem'),
+}
+
 const app = express();
-const serverHttp = createHttpServer(app)
+const serverHttp = createHttpServer(options,app)
 const io = new IOServer(serverHttp, {cors: {origin: "*"}})
 
 app.use(cors())
