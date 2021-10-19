@@ -7,30 +7,30 @@ on:
     
 jobs:
 
-  # upload-docker-container-app-to-remote-repo:
-  #   name: integration
-  #   runs-on: ubuntu-latest
-  #   environment:
-  #     name: CI
+  upload-docker-container-app-to-remote-repo:
+    name: integration
+    runs-on: ubuntu-latest
+    environment:
+      name: CI
         
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: logout
-  #     run: docker logout 
+    steps:
+    - uses: actions/checkout@v2
+    - name: logout
+      run: docker logout 
     
-  #   - name: Build The Docker api Image
-  #     run: docker build . --tag arthursantos2228/nlwheat:latest
+    - name: Build The Docker api Image
+      run: docker build . --tag arthursantos2228/nlwheat:latest
 
 
-  #   - name: docker login 
-  #     env:
-  #       USER_SECURE: ${{secrets.USER_SECRET}}
-  #       PASSWORD_SECURE: ${{secrets.PASS_SECRET}}
-  #     run: |
-  #       docker login -u $USER_SECURE -p $PASSWORD_SECURE 
+    - name: docker login 
+      env:
+        USER_SECURE: ${{secrets.USER_SECRET}}
+        PASSWORD_SECURE: ${{secrets.PASS_SECRET}}
+      run: |
+        docker login -u $USER_SECURE -p $PASSWORD_SECURE 
     
-  #   - name: Docker push api
-  #     run: docker push arthursantos2228/nlwheat:latest
+    - name: Docker push api
+      run: docker push arthursantos2228/nlwheat:latest
 
   docker-container-back:
     name: deployment
@@ -38,7 +38,7 @@ jobs:
     environment:
       name: CD
       url: 'https://nlwheat.arthursantos.tech:2083/github'
-    # needs: upload-docker-container-app-to-remote-repo
+    needs: upload-docker-container-app-to-remote-repo
 
     steps:
     - name: deploy back with ssh
