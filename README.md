@@ -42,7 +42,7 @@
 # Web App  <a name="web-app"></a>
 
   ### **Link** 
-   [>> Chat <<](https://nlwheat.arthursantos.tech:4000) 
+   [>> Chat <<](https://nlwheat.arthursantos.tech:2083/github) 
 
 
 <!-- # Challenges <a name="challenges"></a>
@@ -58,7 +58,7 @@
 <br />
 
 # Tools <a name="tools"></a>
-
+<!-- 
 ## Devops
 
  github Actions | public cloud | cloud flare | docker | portainer
@@ -75,4 +75,4 @@
 
  Next.js | styled-components | socketIO Client | typescript
 :------------ | :-------------| :-------------| :-------------
-:heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: | :heavy_check_mark:
+:heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: | :heavy_check_mark: -->
