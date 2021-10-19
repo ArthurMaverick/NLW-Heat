@@ -3,7 +3,7 @@
 ##  
 
 <h1 align="center">Next Level Week Heat</h1>
-<!-- <div align="center">
+<!-- <div align="center"> 
   <img src="https://github.com/ArthurMaverick/ezops-test-arthursantos/blob/dev/docs/images/26FPJGjhefSJuaRhu.gif" width="600" />
 </div> -->
  
