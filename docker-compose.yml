@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  backend-app:
+    build: ./ 
+    restart: always
+    container_name: nlwheat
+    environment:
+      GITHUB_CLIENT_SECRET: 3a66426fe9bae329bedb7533dbf773cc92604c04
+      GITHUB_CLIENT_ID: cd1271e1eb3d499e1a1b
+      PORT: 4000
+      JWT: secret
+    ports:
+      - "2082:4000"
+
