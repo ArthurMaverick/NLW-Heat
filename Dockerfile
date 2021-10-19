@@ -1,4 +1,4 @@
-FROM node:14 as builder
+FROM node:14.17.1-alpine
 
 WORKDIR /usr/src/app
 
@@ -11,6 +11,6 @@ COPY . .
 RUN npm run build
 
 
-
+RUN npx prisma generate
 EXPOSE 4000
 CMD ["npm","start"]
