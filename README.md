@@ -6,7 +6,7 @@
 <!-- <div align="center">
   <img src="https://github.com/ArthurMaverick/ezops-test-arthursantos/blob/dev/docs/images/26FPJGjhefSJuaRhu.gif" width="600" />
 </div> -->
-
+ 
 
 ![typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 )   ![shellScript](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)  ![docker-version](https://img.shields.io/docker/v/arthursantos2228/realtime-chat/latest?style=for-the-badge) ![website](https://img.shields.io/website?style=for-the-badge&up_message=ok&url=https%3A%2F%2Fwww.arthursantos.tech)
