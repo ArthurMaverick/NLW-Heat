@@ -1,0 +1,58 @@
+name: NLW CI/CD
+on:  
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    
+jobs:
+
+  upload-docker-container-app-to-remote-repo:
+    name: integration
+    runs-on: ubuntu-latest
+    environment:
+      name: CI
+        
+    steps:
+    - uses: actions/checkout@v2
+    - name: logout
+      run: docker logout 
+    
+    - name: Build The Docker api Image
+      run: docker build ./api --tag arthursantos2228/nlwheat:latest
+
+    - name: docker login 
+      env:
+        USER_SECURE: ${{secrets.USER_SECRET}}
+        PASSWORD_SECURE: ${{secrets.PASS_SECRET}}
+      run: |
+        docker login -u $USER_SECURE -p $PASSWORD_SECURE 
+    
+    - name: Docker push api
+      run: docker push arthursantos2228/nlwheat:latest
+
+  docker-container-back:
+    name: deployment
+    runs-on: ubuntu-latest
+    environment:
+      name: CD
+      url: 'https://nlwheat.arthursantos.tech:2083/github'
+    needs: upload-docker-container-app-to-remote-repo
+
+    steps:
+    - name: deploy back with ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{secrets.HOST_ROSE}}
+        username: ${{secrets.USERNAME}}
+        key: ${{secrets.PRIVATE_KEY}}
+        port: ${{secrets.PORT}}
+        passphrase: ${{secrets.PASSWORD}} 
+        debug: true
+        script: |
+          sudo docker container rm nlwheat -f \
+          && sudo docker image rm arthursantos2228/nlwheat -f \
+          && cd nlw \
+          && sudo docker-compose up -d
+    
+  
